@@ -1,0 +1,57 @@
+#include <iostream>
+#include <bits/stdc++.h>
+//Aristotelis Gkinis exercise.9
+using namespace std;
+
+int findOddMin(int array[],int size);
+int findEvenSum(int array[],int size);
+
+int main() {
+    int Pin[99];
+    int number = INT_MIN;
+    int count = 0;
+
+    cout<<"-----------------------------\n";
+    cout<<"Press 0 to EXIT\n";
+    cout<<"Enter your password:\n";
+    cout<<"-----------------------------\n";
+
+    while(number != 0){
+        cin>>number;
+        Pin[count] = number;
+        count++;
+    } 
+    
+    cout<<"-----------------------------\n";
+    cout<<"The password has " <<count - 1<< " digits\n";
+    cout<< "count :" << count<<endl;
+    cout<<"Minimum number is :"<< findOddMin(Pin, count)<<endl;
+    cout<<"The sum is :"<< findEvenSum(Pin, count)<<endl;
+    cout<<"-----------------------------\n";
+
+    return 0;
+}
+
+int findOddMin(int array[],int size) {
+    
+    int min = INT_MAX;
+    
+    for(int i=0; i<size-1; i++) {
+        if( array[i] < min) {
+            min =  array[i];
+        }
+    }
+    return min;
+}
+
+int findEvenSum(int array[],int size) {
+
+    int sum = 0;
+    
+    for(int i=0; i<size-1; i++) {
+        if( array[i] % 2 == 0) {
+            sum += array[i];
+        }
+    }
+    return sum;
+}

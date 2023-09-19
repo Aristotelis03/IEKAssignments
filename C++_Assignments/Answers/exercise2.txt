@@ -1,0 +1,76 @@
+#include <iostream> 
+//Aristotelis Gkinis exercise.2
+using namespace std;
+
+int main()
+{
+    char destination;
+    char mOT;
+    int seats;
+    double money = 0;
+    double sum = 0;
+    double italySum = 0;
+    double airTicketsSum = 0;
+    
+        while(seats != 0) {
+            money = 0;
+            cout<< "Enter your destination: \n";
+            cout<< "-Itay(I), Cyprus(C) or Turkey(T)): ";
+            cin>> destination;
+        
+            cout<< "Enter means of transport:\n";
+            cout<< "-Airplane(A) or Ship(S): ";
+            cin>> mOT;
+            
+            cout<< "Enter 0 to exit \n";
+            cout<< "Enter number of seats: ";
+            cin>> seats;
+            
+            switch(mOT){
+                
+                case 'A':
+                    if(destination == 'I') {
+                        money = seats * 300;
+                        italySum += money;
+                    } else if (destination == 'C') {
+                        money = seats * 350;
+                    } else if (destination == 'T') {
+                        money = seats * 250;
+                    } else {
+                        cout<<"---------------------------------\n";  
+                        cout<< "**Not available destination\n Please choose I, C or T**\n";
+                    }
+                    airTicketsSum += money;
+                    sum += money;
+                    break;
+                    
+                case 'S':
+                    if(destination == 'I') {
+                        money = seats * 200;
+                        italySum += money;
+                    } else if (destination == 'C') {
+                        money = seats * 250;
+                    } else if (destination == 'T') {
+                        money = seats * 150;
+                    } else {
+                        cout<<"---------------------------------\n";  
+                        cout<< "**Not available destination\n Please choose I, C or T**\n";
+                    }
+                    sum += money;
+                    break;
+                    
+                default :
+                    cout<< " Not available means of transportation\n";
+            }
+                    cout<<"---------------------------------\n";                   
+                    cout<<"The price is "<<money<<" EURO"<<endl;
+                    cout<<"---------------------------------\n";
+                    cout<<"The sum is "<<sum<<" EURO"<<endl;
+                    cout<<"The sum of the tickets for Itay is "<<italySum<<" EURO"<<endl;
+                    cout<<"The air tickets sum is "<<airTicketsSum<<" EURO"<<endl;
+
+                    cout<<"---------------------------------\n";      
+        }
+        
+    return 0;
+}

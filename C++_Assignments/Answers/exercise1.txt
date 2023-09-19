@@ -1,0 +1,94 @@
+#include <iostream> 
+//Aristotelis Gkinis exercise.1
+using namespace std;
+
+int main()
+{
+    string currency;
+    double ammountOM;
+    double exchage = 0;
+    double gbpSum = 0;
+    double usdSum = 0;
+    double rubSum = 0;
+    double ypySum = 0;
+    double overalSum = 0;
+    
+    
+    while(ammountOM != 0 && currency != "x") {
+
+        cout<< "*Enter x to exit* \n";
+        cout<< "Enter type of currency \n";
+        cout<< "(GBP, USD, RUB or JPY):\n";
+        cin>> currency;
+        
+        if (currency == "GBP") {
+            cout<< "Now Enter the ammount you want to convert: ";
+            cin>> ammountOM;
+            exchage = ammountOM * 1.18;
+            gbpSum += exchage;
+            
+            cout<<"--------------------------\n";
+            cout <<ammountOM << " GBP are: " << exchage << " Euros."<< endl;
+            cout<<"--------------------------\n";
+        }
+            else if (currency == "USD"){
+            cout<< "Now Enter the ammount you want to convert: ";
+            cin>> ammountOM;
+            exchage = ammountOM * 0.9;
+            usdSum += exchage;
+            
+            cout<<"--------------------------\n";
+            cout <<ammountOM << " USD are: " << exchage << " Euros."<< endl;
+            cout<<"--------------------------\n";
+        }
+        else if (currency == "RUB"){
+            cout<< "Now Enter the ammount you want to convert: ";
+            cin>> ammountOM;
+            exchage = ammountOM * 0.01;
+            rubSum += exchage;
+            
+            cout<<"--------------------------\n";
+            cout <<ammountOM << " RUB are: " << exchage << " Euros."<< endl;
+            cout<<"--------------------------\n";
+        }
+        else if (currency == "JPY"){
+            cout<< "Now Enter the ammount you want to convert: ";
+            cin>> ammountOM;
+            exchage = ammountOM *  0.0074;
+            ypySum += exchage;
+            
+            cout<<"--------------------------\n";
+            cout <<ammountOM << " JPY are: " << exchage << " Euros."<< endl;
+            cout<<"--------------------------\n";
+    
+        } else {
+            cout<<"--------------------------\n";
+            cout<< "Invalid currency. Try Again:\n";
+            cout<<"--------------------------\n";
+        }
+        
+        overalSum += exchage;
+        exchage = 0;
+        
+        cout<<"The sum of the exchages from GBP to EU is: "<<gbpSum<< endl;
+        cout<<"--------------------------\n";
+        cout<<"The sum of the exchages from USD to EU is: "<<usdSum<< endl;
+        cout<<"--------------------------\n";
+        cout<<"The sum of the exchages from RUB to EU is: "<<rubSum<< endl;
+        cout<<"--------------------------\n";
+        cout<<"The sum of the exchages from JPY to EU is: "<<ypySum<< endl;
+        cout<<"--------------------------\n";
+        cout<< "The overal sum is: "<<overalSum<< endl;
+        cout<<"--------------------------\n";
+        
+        
+    }
+    
+    if (currency == "x"|| ammountOM == 0) {
+        
+        cout<< "Terminating...\n";
+        cout<<"--------------------------\n";
+    }
+    
+    return 0;
+}

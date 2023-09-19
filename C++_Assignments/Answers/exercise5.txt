@@ -1,0 +1,68 @@
+#include <iostream>
+// Aristotelis Gkinis exercise.5
+#define UNDERLINE "\033[4m"
+
+#define CLOSEUNDERLINE "\033[0m"
+
+using namespace std;
+
+int main()
+{
+    int viewersAge[4];
+    int age = 0;
+    int sum = 0;
+    int countChild = 0;
+    int countElder = 0;
+    
+    cout<<UNDERLINE<<"*****Tickets shop*****"<<CLOSEUNDERLINE<<endl<<endl;
+    
+    cout<<"------------------------------------------------------------------\n";
+    cout<<"Tickets price for children until the age of 12 is 8 Euros\n"
+          "Tickets price for viewers from the age of 12 to 65 is 15 Euros\n"
+          "Tickets price for viewers over 65 years old is 10 Euros\n";
+    cout<<"------------------------------------------------------------------\n\n";    
+    
+    for (int i = 0; i<= 4; i++) {
+        
+        cout<<"Enter the age of the viewer "<<i+1<<": ";
+        cin>> age;
+        viewersAge[i] = age;
+      
+    }
+    
+    cout<<"\n------------------------------------\n";
+    
+    for (int i = 0; i<= 4; i++) {
+        
+        int ticketPrice = 0;
+        if(viewersAge[i] <= 12 ) {
+            countChild++;
+            ticketPrice = 8;
+            cout<<"Viewer NO."<<i+1<<" ticket price: "<<ticketPrice<<"Euros"<< endl;
+        } else if(viewersAge[i] >= 12 && viewersAge[i] <= 65) {
+            ticketPrice = 15;
+            cout<<"Viewer NO."<<i+1<<" ticket price: "<<ticketPrice<<"Euros"<< endl;
+        } else if(viewersAge[i] > 65) {
+            countElder++;
+            ticketPrice = 10;
+            cout<<"Viewer NO."<<i+1<<" ticket price: "<<ticketPrice<<"Euros"<< endl;
+        } else {
+            cout<<"Invalid age\n";
+        }
+        
+        sum += ticketPrice;
+        
+        cout<<"------------------------------------\n";
+    }
+    
+    cout<<"\n===================================\n";
+    cout<<"Total ticets receipts: "<< sum<<" Euros"<<endl;
+    cout<<"===================================\n\n";
+    
+    cout<<UNDERLINE<<"Viewers age informations" <<CLOSEUNDERLINE<<endl<<endl;
+    cout<<"-Children viewrs: "<< countChild <<endl;
+    cout<<"-Elder viewrs: "<< countElder <<endl;
+    cout<<"\n===================================\n";
+    
+    return 0;
+}

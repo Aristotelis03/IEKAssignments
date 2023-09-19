@@ -1,0 +1,62 @@
+#include <iostream>
+#include <bits/stdc++.h>
+// Aristotelis Gkinis exercise.6
+#define UNDERLINE "\033[4m"
+
+#define CLOSEUNDERLINE "\033[0m"
+using namespace std;
+
+int main() {
+
+
+    string name = "";
+    double grade;
+    string maxName;
+    int maxGrade = INT_MIN;
+    double sum=0;
+    double average = 0;
+    int counts = 1;
+    
+    
+    cout<<"*Enter x to get the results*"<<endl;
+    cout<<"----------------------------\n";
+    
+    while(true){
+        
+        
+        cout<< "Enter name: ";
+        cin>> name; 
+        if(name == "x") {
+
+            
+            cout<<"----------------------------\n";
+            break;
+            
+        }
+        do{
+            cout<< "Enter "<< name <<" grade: ";
+            cin>> grade;
+        }while (grade>20||grade<0);
+        
+        sum += grade; 
+        average = sum /counts;
+        
+        if(grade >= maxGrade) {
+            maxGrade = grade;
+            maxName = name;
+        }
+        
+        cout<<"----------------------------\n";
+        counts++;
+       
+    }
+    
+    cout<< "Average: "<<average<<
+    "\n----------------------------\n";
+    
+    cout<<UNDERLINE<< "Highest grade"<<CLOSEUNDERLINE<<endl<<endl;
+    cout<<"-Name: " <<maxName << 
+    "\n-Grade: "<< maxGrade<<"\n----------------------------\n";
+
+   return 0;
+}

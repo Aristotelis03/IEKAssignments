@@ -1,0 +1,38 @@
+#include <iostream> 
+//Aristotelis Gkinis exercise.3
+using namespace std;
+
+int main()
+{
+   int volume;
+   int taxValue;
+   int tax[9];
+   
+   for (int i = 0; i <= 9; i++) {
+       cout<<"Enter the volume of the Car NO."<< i+1 << endl;
+       cin>> volume;
+       if(volume >= 0 && volume <= 1100) { 
+           tax[i] = 110;
+           cout<<endl;
+          
+       } else if(volume >= 1101 && volume <= 1400) { 
+           tax[i] = 150;
+           cout<<endl;
+           
+       } else if(volume >= 1401 && volume <= 2000) { 
+           tax[i] = 225;
+           cout<<endl;
+           
+       } else if(volume >= 2001) { 
+           tax[i] = 600;
+           cout<<endl;
+       }
+       
+   }
+   cout<<"-------------------------------------\n";
+   for (int i = 0; i <= 9; i++) {
+       cout<<"The taxes for the Car NO."<<i+1 << " is : "<<tax[i]<<" Euro"<<endl;
+   }
+    
+    return 0;
+}

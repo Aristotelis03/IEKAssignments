@@ -1,0 +1,68 @@
+#include <iostream>
+// Aristotelis Gkinis exercise.4
+#define UNDERLINE "\033[4m"
+
+#define CLOSEUNDERLINE "\033[0m"
+
+using namespace std;
+
+int main()
+{
+    int airPollution[5];
+    int pollutionValue = 0;
+    int countDanger = 0;
+    int sum = 0;
+    double averagePolution = 0;
+    
+    for (int i = 0; i<= 5; i++) {
+        cout<<"Enter the pollution status"<<" of Day "<<i+1<<": ";
+        cin>> pollutionValue;
+        airPollution[i] = pollutionValue;
+      
+    }
+    
+    cout<<"------------------------------------\n";
+    
+    for (int i = 0; i<= 5; i++) {
+        
+
+        if(airPollution[i] <= 1 && airPollution[i] >= 0) {
+            
+            cout<<"Day "<<i+1<<" pollution: "<<airPollution[i]<< endl;
+            cout<<"Normal air pollution\n";
+        } else if(airPollution[i] == 2) {
+            cout<<"Day "<<i+1<<" pollution: "<<airPollution[i]<< endl;
+            cout<<"Air pollution at the limit\n";
+            
+        } else if(airPollution[i] > 2) {
+            
+            cout<<"Day "<<i+1<<" pollution: "<<airPollution[i]<< endl;
+            cout<<"Dangerous air pollution\n";
+            
+            if(airPollution[i] > 3) {
+            countDanger++;
+            }
+            
+        } else {
+            cout<<"Invalid pollution value\n";
+        }
+
+        cout<<"------------------------------------\n";
+        
+    }
+    
+    for (int i = 0; i<= 5; i++) {
+       sum += airPollution[i];
+       averagePolution = sum / 30;
+      
+    }
+
+    cout<< endl;
+    cout<<UNDERLINE<< "Months informations" <<CLOSEUNDERLINE<<endl<<endl;
+    cout<<"-The average pollution of the month is :"<<averagePolution<<endl;
+    cout<<"-Number of dangerous days(polution over 3): "<<countDanger<<endl;
+
+
+
+    return 0;
+}
